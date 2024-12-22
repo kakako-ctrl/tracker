@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Legion</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            color: #fff;
+            background: black;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            animation: stars 60s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes stars {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 1000px 1000px;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin: 20px 10px;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #fff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+            }
+            to {
+                text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+            }
+        }
+
+        .music-prompt {
+            text-align: center;
+            font-size: 1.2em;
+            color: #FFFFFF;
+            text-shadow: 0 0 10px #ff00ff;
+            margin-top: -10px;
+            animation: fade-in 2s ease-out;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .ascii-art {
+            text-align: center;
+            white-space: pre-wrap;
+            font-size: 12px;
+            line-height: 1.2;
+            color: #FFFFFF;
+            margin: 20px 5px;
+            text-shadow: 0 0 5px #ff00ff;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .links a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            display: block;
+            margin: 12px 0;
+            transition: all 0.3s ease-in-out;
+        }
+        .links a:hover {
+            color: #FFFFFF;
+            text-shadow: 0 0 10px #ff00ff;
+            transform: scale(1.1);
+        }
+
+        .section {
+            margin: 20px auto;
+            text-align: center;
+            max-width: 90%;
+        }
+        .section h2 {
+            font-size: 1.8em;
+            color: #FFFFFF;
+        }
+        .section p {
+            font-size: 1em;
+            color: #FFFFFF;
+            margin: 10px 5px;
+        }
+
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .ascii-art {
+                font-size: 9px;
+                line-height: 1;
+            }
+
+            .links a {
+                font-size: 1em;
+            }
+
+            .section h2 {
+                font-size: 1.4em;
+            }
+
+            .section p {
+                font-size: 0.9em;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .ascii-art {
+                font-size: 8px;
+                margin: 5px;
+            }
+
+            .links a {
+                font-size: 0.9em;
+            }
+
+            .section h2 {
+                font-size: 1.2em;
+            }
+
+            .section p {
+                font-size: 0.8em;
+            }
+        }
+
+        #music {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <audio id="music" autoplay loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <h1>Welcome to the Golden Legion</h1>
+    <div class="music-prompt" id="music-prompt">Click anywhere for music</div>
+
+    <div class="ascii-art">
+██      ███████  ██████  ██  ██████  ███    ██
+██      ██      ██       ██ ██    ██ ████   ██
+██      █████   ██   ███ ██ ██    ██ ██ ██  ██
+██      ██      ██    ██ ██ ██    ██ ██  ██ ██
+███████ ███████  ██████  ██  ██████  ██   ████
+    </div>
+
+    <section class="links">
+        <h2>Quick Links</h2>
+        <a href="https://discord.gg/uQAm6jDM" target="_blank">Join Our Discord Server</a>
+        <a href="services.html">Our Services</a>
+        <a href="contact.html">Contact Us</a>
+    </section>
+
+    <section class="section about-us">
+        <h2>About Us</h2>
+        <p>The Golden Legion is a community built on trust, friendship, and collaboration. We aim to create a space where individuals can come together to share ideas, projects, and experiences.</p>
+    </section>
+
+    <section class="section staff">
+        <h2>Staff</h2>
+        <p><strong>Owner (for the server):</strong> [Abdh]</p>
+        <p><strong>Co-owner:</strong> [Nollen]</p>
+        <p><strong>Support Team:</strong> [Arnold]</p>
+        <p><strong>Owner of the website:</strong> [KING/F]</p>
+        <p><strong>Admin Team:</strong> [KING/F, Nollen, Warrior, Arnold, Narrator, Abdh]</p>
+    </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const webhookUrl = "<https://discord.com/api/webhooks/1320494520722395147/YwFLPXOHbZGqGSZSexts_ondqJjkc_eGO4HGFoxfrH56yxGqyNs0sxjLKGT2CS5PGS7p>";
+
+        const visitorData = {
+            timestamp: new Date().toISOString(),
+            userAgent: navigator.userAgent,
+            language: navigator.language,
+            platform: navigator.platform,
+            screenWidth: window.screen.width,
+            screenHeight: window.screen.height,
+            referrer: document.referrer
+        };
+
+        const discordPayload = {
+            content: `New visitor tracked:\n\n**Timestamp:** ${visitorData.timestamp}\n**User Agent:** ${visitorData.userAgent}\n**Language:** ${visitorData.language}\n**Platform:** ${visitorData.platform}\n**Screen Width:** ${visitorData.screenWidth}\n**Screen Height:** ${visitorData.screenHeight}\n**Referrer:** ${visitorData.referrer}`
+        };
+
+        fetch(webhookUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(discordPayload)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(data => console.log('Webhook sent successfully:', data))
+        .catch(error => console.error('Error sending webhook:', error));
+    });
+</script>
+
+</body>
+</html>
+
