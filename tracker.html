@@ -200,42 +200,41 @@
         <p><strong>Admin Team:</strong> [KING/F, Nollen, Warrior, Arnold, Narrator, Abdh]</p>
     </section>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const webhookUrl = "<https://discord.com/api/webhooks/1320494520722395147/YwFLPXOHbZGqGSZSexts_ondqJjkc_eGO4HGFoxfrH56yxGqyNs0sxjLKGT2CS5PGS7p>";
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const webhookUrl = "https://discord.com/api/webhooks/1320494520722395147/YwFLPXOHbZGqGSZSexts_ondqJjkc_eGO4HGFoxfrH56yxGqyNs0sxjLKGT2CS5PGS7p";
 
-        const visitorData = {
-            timestamp: new Date().toISOString(),
-            userAgent: navigator.userAgent,
-            language: navigator.language,
-            platform: navigator.platform,
-            screenWidth: window.screen.width,
-            screenHeight: window.screen.height,
-            referrer: document.referrer
-        };
+            const visitorData = {
+                timestamp: new Date().toISOString(),
+                userAgent: navigator.userAgent,
+                language: navigator.language,
+                platform: navigator.platform,
+                screenWidth: window.screen.width,
+                screenHeight: window.screen.height,
+                referrer: document.referrer
+            };
 
-        const discordPayload = {
-            content: `New visitor tracked:\n\n**Timestamp:** ${visitorData.timestamp}\n**User Agent:** ${visitorData.userAgent}\n**Language:** ${visitorData.language}\n**Platform:** ${visitorData.platform}\n**Screen Width:** ${visitorData.screenWidth}\n**Screen Height:** ${visitorData.screenHeight}\n**Referrer:** ${visitorData.referrer}`
-        };
+            const discordPayload = {
+                content: `New visitor tracked:\n\n**Timestamp:** ${visitorData.timestamp}\n**User Agent:** ${visitorData.userAgent}\n**Language:** ${visitorData.language}\n**Platform:** ${visitorData.platform}\n**Screen Width:** ${visitorData.screenWidth}\n**Screen Height:** ${visitorData.screenHeight}\n**Referrer:** ${visitorData.referrer}`
+            };
 
-        fetch(webhookUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(discordPayload)
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.text();
-        })
-        .then(data => console.log('Webhook sent successfully:', data))
-        .catch(error => console.error('Error sending webhook:', error));
-    });
-</script>
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(discordPayload)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(data => console.log('Webhook sent successfully:', data))
+            .catch(error => console.error('Error sending webhook:', error));
+        });
+    </script>
 
 </body>
 </html>
-
